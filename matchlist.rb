@@ -10,4 +10,5 @@ class MatchList
   def push(match_result)
     @matches.push(match_result)
   end
+
 end
