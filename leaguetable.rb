@@ -57,45 +57,127 @@ class LeagueTable
 		get_goals_for(team_name) - get_goals_against(team_name)
 	end
 
+	def get_wins(team_name)
+		wins = 0
+		get_points_table.each do |match|
+			if match[1][team_name] == 3
+				wins = wins + 1
+			end
+		end
+		wins
+	end
+
+	def get_draws(team_name)
+		draws = 0
+		get_points_table.each do |match|
+			if match[1][team_name] == 1
+				draws = draws +1
+			end
+		end
+		draws
+	end
+
 end
 
 lt = LeagueTable.new
 lt.matches.push("Man Utd 3 - 2 Liverpool")
 
+puts "------"
+
 puts "Goals_table: #{lt.get_goals_table}" 
 puts "Points_table: #{lt.get_points_table}"
 
 puts "Points for Liverpool: #{lt.get_points("Liverpool")}" # 0
-puts "Points for Manchester: #{lt.get_points("Man Utd")}" # 3
+puts "Points for Man Utd: #{lt.get_points("Man Utd")}" # 3
+puts "Points for None: #{lt.get_points("None")}" # 0
 
 puts "Goals for Liverpool: #{lt.get_goals_for("Liverpool")}" # 2
-puts "Goals for Manchester: #{lt.get_goals_for("Man Utd")}" # 3
+puts "Goals for Man Utd: #{lt.get_goals_for("Man Utd")}" # 3
+puts "Goals for None: #{lt.get_goals_for("None")}" # 0
 
 puts "Goals against Liverpool: #{lt.get_goals_against("Liverpool")}" # 3
-puts "Goals against Manchester: #{lt.get_goals_against("Man Utd")}" # 2
+puts "Goals against Man Utd: #{lt.get_goals_against("Man Utd")}" # 2
+puts "Goals against None: #{lt.get_goals_against("None")}" # 0
 
 puts "Goals difference Liverpool: #{lt.get_goal_difference("Liverpool")}" # -1
-puts "Goals difference Manchester: #{lt.get_goal_difference("Manchester")}" # 1
+puts "Goals difference Man Utd: #{lt.get_goal_difference("Man Utd")}" # 1
+puts "Goals difference None: #{lt.get_goal_difference("None")}" # 0
+
+puts "Wins for Liverpool: #{lt.get_wins("Liverpool")}" # 0
+puts "Wins for Man Utd: #{lt.get_wins("Man Utd")}" # 1
+puts "Wins for None: #{lt.get_wins("None")}" # 0
+
+puts "Draws for Liverpool: #{lt.get_draws("Liverpool")}" # 0
+puts "Draws for Man Utd: #{lt.get_draws("Man Utd")}" # 0
+puts "Draws for None: #{lt.get_draws("None")}" # 0
+
+puts "------"
 
 
 lt.matches.push("Man Utd 1 - 2 Liverpool")
+
+puts "------"
 
 puts "Goals_table: #{lt.get_goals_table}" 
 puts "Points_table: #{lt.get_points_table}"
 
 puts "Points for Liverpool: #{lt.get_points("Liverpool")}" # 3
-puts "Points for Manchester: #{lt.get_points("Man Utd")}" # 3
+puts "Points for Man Utd: #{lt.get_points("Man Utd")}" # 3
+puts "Points for None: #{lt.get_points("None")}" # 0
 
 puts "Goals for Liverpool: #{lt.get_goals_for("Liverpool")}" # 4
-puts "Goals for Manchester: #{lt.get_goals_for("Man Utd")}" # 4
+puts "Goals for Man Utd: #{lt.get_goals_for("Man Utd")}" # 4
+puts "Goals for None: #{lt.get_goals_for("None")}" # 0
 
 puts "Goals against Liverpool: #{lt.get_goals_against("Liverpool")}" # 4
-puts "Goals against Manchester: #{lt.get_goals_against("Man Utd")}" # 4
+puts "Goals against Man Utd: #{lt.get_goals_against("Man Utd")}" # 4
+puts "Goals against None: #{lt.get_goals_against("None")}" # 0
 
 puts "Goals difference Liverpool: #{lt.get_goal_difference("Liverpool")}" # 0
-puts "Goals difference Manchester: #{lt.get_goal_difference("Manchester")}" # 0
+puts "Goals difference Man Utd: #{lt.get_goal_difference("Man Utd")}" # 0
+puts "Goals difference None: #{lt.get_goal_difference("None")}" # 0
 
+puts "Wins for Liverpool: #{lt.get_wins("Liverpool")}" # 1
+puts "Wins for Man Utd: #{lt.get_wins("Man Utd")}" # 1
+puts "Wins for None: #{lt.get_wins("None")}" # 0
 
+puts "Draws for Liverpool: #{lt.get_draws("Liverpool")}" # 0
+puts "Draws for Man Utd: #{lt.get_draws("Man Utd")}" # 0
+puts "Draws for None: #{lt.get_draws("None")}" # 0
 
+puts "------"
+
+lt.matches.push("Man Utd 1 - 1 Liverpool")
+
+puts "------"
+
+puts "Goals_table: #{lt.get_goals_table}" 
+puts "Points_table: #{lt.get_points_table}"
+
+puts "Points for Liverpool: #{lt.get_points("Liverpool")}" # 4
+puts "Points for Man Utd: #{lt.get_points("Man Utd")}" # 4
+puts "Points for None: #{lt.get_points("None")}" # 0
+
+puts "Goals for Liverpool: #{lt.get_goals_for("Liverpool")}" # 5
+puts "Goals for Man Utd: #{lt.get_goals_for("Man Utd")}" # 5
+puts "Goals for None: #{lt.get_goals_for("None")}" # 0
+
+puts "Goals against Liverpool: #{lt.get_goals_against("Liverpool")}" # 5
+puts "Goals against Man Utd: #{lt.get_goals_against("Man Utd")}" # 5
+puts "Goals against None: #{lt.get_goals_against("None")}" # 0
+
+puts "Goals difference Liverpool: #{lt.get_goal_difference("Liverpool")}" # 0
+puts "Goals difference Man Utd: #{lt.get_goal_difference("Man Utd")}" # 0
+puts "Goals difference None: #{lt.get_goal_difference("None")}" # 0
+
+puts "Wins for Liverpool: #{lt.get_wins("Liverpool")}" # 1
+puts "Wins for Man Utd: #{lt.get_wins("Man Utd")}" # 1
+puts "Wins for None: #{lt.get_wins("None")}" # 0
+
+puts "Draws for Liverpool: #{lt.get_draws("Liverpool")}" # 1
+puts "Draws for Man Utd: #{lt.get_draws("Man Utd")}" # 1
+puts "Draws for None: #{lt.get_draws("None")}" # 0
+
+puts "------"
 
 
