@@ -16,9 +16,7 @@ class LeagueTable
 
 	# Returns the no. of points a team has, 0 by default
 	def get_points(team_name)
-
 		points = 0
-
 		# Goes through matches results and 
 		# If a team is present then adds to score
 
@@ -29,9 +27,7 @@ class LeagueTable
 				points = points + match[1][team_name]
 			end
 		end
-
 		points
-
 	end
 
 	# Returns the no. of goals a team has scored, 0 by default
@@ -42,9 +38,7 @@ class LeagueTable
 
 	# Returns the no. of goals a team has conceeded (had scored against them), 0 by default
 	def get_goals_against(team_name)
-		
 		points = 0
-
 		get_results_table.each do |match|
 			if match[1].has_key?(team_name)
 				# Get values for all keys except team_name
@@ -63,7 +57,6 @@ class LeagueTable
 
 	def get_wins(team_name)
 		wins = 0
-
 		get_results_table.each do |match|
 			if match[1].has_key?(team_name)
 				# Win counted if team has 3 points
@@ -75,23 +68,42 @@ class LeagueTable
 		wins
 	end
 
+	def get_draws(team_name)
+		draws = 0
+		get_results_table.each do |match|
+			if match[1].has_key?(team_name)
+				# Draw counted if team has 1 point
+				if match[1][team_name] == 1
+					draws = draws + 1
+				end
+			end
+		end
+		draws
+	end
+
 end
 
 lt = LeagueTable.new
 
 lt.matches.push("Man Utd 3 - 0 Liverpool")
-puts lt.get_wins("Man Utd")
+puts lt.get_draws("Man Utd")
 #puts lt.get_goal_difference("Liverpool")
 #puts lt.get_goals_against("Liverpool")
 
 lt.matches.push("Liverpool 0 - 3 Man Utd")
-puts lt.get_wins("Man Utd")
+puts lt.get_draws("Man Utd")
 
 #puts lt.get_goal_difference("Liverpool")
 
 #puts lt.get_goals_against("Liverpool")
 
-#lt.matches.push("Crawley 3  - 2 Colchester")
+lt.matches.push("Crawley 0  - 1 Colchester")
+puts lt.get_draws("Colchester")
+
+
+lt.matches.push("Crawley 1  - 1 Colchester")
+puts lt.get_draws("Colchester")
+
 
 #lt.get_results_table
 #p lt.get_points("Man Utd")
