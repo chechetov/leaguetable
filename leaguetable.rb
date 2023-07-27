@@ -81,28 +81,41 @@ class LeagueTable
 		draws
 	end
 
+	def get_losses(team_name)
+		losses = 0
+		get_results_table.each do |match|
+			if match[1].has_key?(team_name)
+				# Loss is counted if team has 0 points
+				if match[1][team_name] == 0
+					losses = losses +1
+				end
+			end
+		end
+		losses
+	end
+
 end
 
 lt = LeagueTable.new
 
 lt.matches.push("Man Utd 3 - 0 Liverpool")
-puts lt.get_draws("Man Utd")
+puts lt.get_losses("Liverpool") # 1
 #puts lt.get_goal_difference("Liverpool")
 #puts lt.get_goals_against("Liverpool")
 
 lt.matches.push("Liverpool 0 - 3 Man Utd")
-puts lt.get_draws("Man Utd")
-
+puts lt.get_losses("Liverpool") # 2
 #puts lt.get_goal_difference("Liverpool")
-
 #puts lt.get_goals_against("Liverpool")
 
 lt.matches.push("Crawley 0  - 1 Colchester")
-puts lt.get_draws("Colchester")
+puts lt.get_losses("Colchester") # 0
 
 
 lt.matches.push("Crawley 1  - 1 Colchester")
-puts lt.get_draws("Colchester")
+puts lt.get_losses("Colchester") # 0
+
+
 
 
 #lt.get_results_table
