@@ -38,25 +38,35 @@ class LeagueTable
 	end
 
 	def get_goals_against(team_name)
+		
+		points = 0
 
+		get_results.each do |match|
+			if match[1].has_key?(team_name)
+				#Get values for all keys except team_name
+				points_conceeded = match[1].reject { |key, _| key == team_name }.values
+				# Here should be only one number but just in case I sum array instead
+				points = points + points_conceeded.sum
+			end
+		end
+		points
 	end
+
+
+
+
 
 end
 
 lt = LeagueTable.new
+
 lt.matches.push("Man Utd 3 - 0 Liverpool")
-
-puts lt.get_goals_for("Man Utd")
-puts lt.get_points("Man Utd")
-puts lt.get_points("Liverpool")
-
-lt.matches.push("Liverpool 1 - 1 Man Utd")
-
-puts lt.get_goals_for("Man Utd")
-puts lt.get_points("Man Utd")
-puts lt.get_points("Liverpool")
+puts lt.get_goals_against("Liverpool")
 
 
+
+#lt.matches.push("Liverpool 1 - 1 Man Utd")
+#puts lt.get_goals_against("Man Utd")
 
 #lt.matches.push("Crawley 3  - 2 Colchester")
 

@@ -12,6 +12,7 @@ class MatchList
     @match_number = 0
   end
 
+  # Against Ruby convention to satisfy the task.
   def push(match_result)
     @matches.push(match_result)
     @match_number += 1
