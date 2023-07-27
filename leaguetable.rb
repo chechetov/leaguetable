@@ -60,18 +60,34 @@ class LeagueTable
 	def get_goal_difference(team_name)
 		get_goals_for(team_name) - get_goals_against(team_name)
 	end
-	
+
+	def get_wins(team_name)
+		wins = 0
+
+		get_results_table.each do |match|
+			if match[1].has_key?(team_name)
+				# Win counted if team has 3 points
+				if match[1][team_name] == 3
+					wins = wins + 1
+				end
+			end
+		end
+		wins
+	end
 
 end
 
 lt = LeagueTable.new
 
 lt.matches.push("Man Utd 3 - 0 Liverpool")
-puts lt.get_goal_difference("Liverpool")
+puts lt.get_wins("Man Utd")
+#puts lt.get_goal_difference("Liverpool")
 #puts lt.get_goals_against("Liverpool")
 
-lt.matches.push("Liverpool 1 - 1 Man Utd")
-puts lt.get_goal_difference("Liverpool")
+lt.matches.push("Liverpool 0 - 3 Man Utd")
+puts lt.get_wins("Man Utd")
+
+#puts lt.get_goal_difference("Liverpool")
 
 #puts lt.get_goals_against("Liverpool")
 
