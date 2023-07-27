@@ -77,6 +77,16 @@ class LeagueTable
 		draws
 	end
 
+	def get_losses(team_name)
+		losses = 0
+		get_points_table.each do |match|
+			if match[1][team_name] == 0
+				losses = losses + 1
+			end
+		end
+		losses
+	end
+
 end
 
 lt = LeagueTable.new
@@ -110,6 +120,10 @@ puts "Wins for None: #{lt.get_wins("None")}" # 0
 puts "Draws for Liverpool: #{lt.get_draws("Liverpool")}" # 0
 puts "Draws for Man Utd: #{lt.get_draws("Man Utd")}" # 0
 puts "Draws for None: #{lt.get_draws("None")}" # 0
+
+puts "Losses for Liverpool: #{lt.get_losses("Liverpool")}" # 1
+puts "Losses for Man Utd: #{lt.get_losses("Man Utd")}" # 0
+puts "Losses for None: #{lt.get_losses("None")}" # 0
 
 puts "------"
 
@@ -145,6 +159,10 @@ puts "Draws for Liverpool: #{lt.get_draws("Liverpool")}" # 0
 puts "Draws for Man Utd: #{lt.get_draws("Man Utd")}" # 0
 puts "Draws for None: #{lt.get_draws("None")}" # 0
 
+puts "Losses for Liverpool: #{lt.get_losses("Liverpool")}" # 1
+puts "Losses for Man Utd: #{lt.get_losses("Man Utd")}" # 1
+puts "Losses for None: #{lt.get_losses("None")}" # 0
+
 puts "------"
 
 lt.matches.push("Man Utd 1 - 1 Liverpool")
@@ -178,6 +196,11 @@ puts "Draws for Liverpool: #{lt.get_draws("Liverpool")}" # 1
 puts "Draws for Man Utd: #{lt.get_draws("Man Utd")}" # 1
 puts "Draws for None: #{lt.get_draws("None")}" # 0
 
+puts "Losses for Liverpool: #{lt.get_losses("Liverpool")}" # 1
+puts "Losses for Man Utd: #{lt.get_losses("Man Utd")}" # 1
+puts "Losses for None: #{lt.get_losses("None")}" # 0
+
 puts "------"
+
 
 
