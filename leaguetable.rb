@@ -19,7 +19,7 @@ class LeagueTable
 	end
 
 	def get_points(team_name)
-		# Goes through points table and adds points for a team if team present
+		# Goes through points table and adds points for a team if team present else 0
 		points = 0
 		get_points_table.each do |match|
 			if match[1].has_key?(team_name)
@@ -30,7 +30,7 @@ class LeagueTable
 	end
 
 	def get_goals_for(team_name)
-	# Goes through teams table and adds goals if team present
+	# Goes through teams table and adds goals if team present else 0
 		goals = 0
 		get_goals_table.each do |match|
 			if match[1].has_key?(team_name)
@@ -41,6 +41,7 @@ class LeagueTable
 	end
 
 	def get_goals_against(team_name)
+	# Goes through teams table and adds goals against if team present else 0
 		goals = 0
 		get_goals_table.each do |match|
 			if match[1].has_key?(team_name)
@@ -54,10 +55,12 @@ class LeagueTable
 	end
 
 	def get_goal_difference(team_name)
+		# Gets goals difference for a team if team present else 0
 		get_goals_for(team_name) - get_goals_against(team_name)
 	end
 
 	def get_wins(team_name)
+		# Get wins for a team if present else 0
 		wins = 0
 		get_points_table.each do |match|
 			if match[1][team_name] == 3
@@ -68,6 +71,7 @@ class LeagueTable
 	end
 
 	def get_draws(team_name)
+		# Get draws for a team if present else 0
 		draws = 0
 		get_points_table.each do |match|
 			if match[1][team_name] == 1
@@ -78,6 +82,7 @@ class LeagueTable
 	end
 
 	def get_losses(team_name)
+		# Get losses for a team if present else 0
 		losses = 0
 		get_points_table.each do |match|
 			if match[1][team_name] == 0
@@ -86,8 +91,9 @@ class LeagueTable
 		end
 		losses
 	end
-
 end
+
+=begin
 
 lt = LeagueTable.new
 lt.matches.push("Man Utd 3 - 2 Liverpool")
@@ -201,6 +207,6 @@ puts "Losses for Man Utd: #{lt.get_losses("Man Utd")}" # 1
 puts "Losses for None: #{lt.get_losses("None")}" # 0
 
 puts "------"
-
+=end
 
 

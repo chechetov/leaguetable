@@ -1,5 +1,5 @@
 # Some (tiny) parts are made with usage of ChatGPT
-# But many are not
+# But most are not
 
 class MatchList
 
