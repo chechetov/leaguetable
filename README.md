@@ -65,5 +65,5 @@ require 'logger'
 require './your_solution.rb'
 
 describe LeagueTable do
-  # your specs
+  #your specs
 end
