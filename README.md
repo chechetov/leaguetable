@@ -1,6 +1,8 @@
 # Task as provided.
 
 Guidlines
+
+
 0. Create and share with me trough skype github repo
 1. I’ve prepare a ruby template (run.rb) that you could use (you don't have to!)
 2. Write specs for your classes.
