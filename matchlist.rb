@@ -24,6 +24,8 @@ class MatchList
   end
 
   def parse_match_result(match_result)
+    # Parses match result from string into hash
+    # {'teamA' => 'goalsA', 'teamB' => 'goalsB'}
 
     match_result_arr = match_result.split("-")
     match_result_hash = {}
@@ -81,6 +83,5 @@ class MatchList
     end
 
     @all_matches_points_table["match#{@match_number}"] = points_hash
-
   end
 end
