@@ -4,6 +4,7 @@
 class MatchList
 
   attr_reader :matches
+  attr_reader :all_matches_hash
 
   def initialize
     @matches = []
@@ -35,11 +36,7 @@ class MatchList
   		match_result_hash[team_name_2] = team_score_2
   	end
     @all_matches_hash["match#{@match_number}"] = match_result_hash
-    p @all_matches_hash
   end
 
-  def get_last
-  	@matches[-1]
-  end
 
 end
