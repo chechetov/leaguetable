@@ -39,6 +39,7 @@ The class must have the following methods:
     get_losses(team_name) # Return the no. of losses a team has, 0 by default
 
 For example:
+
     lt = LeagueTable.new
 
     lt.matches.push("Man Utd 3 - 0 Liverpool")
@@ -55,23 +56,24 @@ For example:
     puts lt.get_points("Liverpool") => 1
     puts lt.get_goals_against("Man Utd") => 1
     puts lt.get_points("Tottenham") => 0
+
 Run.rb template:
 
-system 'rm Gemfile' if File.exist?('Gemfile')
-File.write('Gemfile', <<-GEMFILE)
-  source 'https://rubygems.org'
-GEMFILE
+    system 'rm Gemfile' if File.exist?('Gemfile')
+    File.write('Gemfile', <<-GEMFILE)
+        source 'https://rubygems.org'
+    GEMFILE
 
-system 'bundle install'
+    system 'bundle install'
 
-require 'bundler'
-Bundler.setup(:default)
+    require 'bundler'
+    Bundler.setup(:default)
 
-require 'minitest/autorun'
-require 'logger'
+    require 'minitest/autorun'
+    require 'logger'
 
-require './your_solution.rb'
+    require './your_solution.rb'
 
-describe LeagueTable do
-  #your specs
-end
+    describe LeagueTable do
+      #your specs
+    end
