@@ -1,4 +1,4 @@
-# Task as provided.
+# Task as provided
 
 Guidlines
 
@@ -25,11 +25,17 @@ When a new match result is given, points are awarded to teams as follows:
 
 The class must have the following methods:
     get_points(team_name) # Returns the no. of points a team has, 0 by default
+
     get_goals_for(team_name) # Returns the no. of goals a team has scored, 0 by default
+
     get_goals_against(team_name) # Returns the no. of goals a team has conceeded (had scored against them), 0 by default
+
     get_goal_difference(team_name) # Return the no. of goals a team has scored minus the no. of goals a team has conceeded, 0 by default
+
     get_wins(team_name) # Return the no. of wins a team has, 0 by default
+
     get_draws(team_name) # Return the no. of draws a team has, 0 by default
+
     get_losses(team_name) # Return the no. of losses a team has, 0 by default
 
 For example:
